@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecomfornet Editorial Hub</title>
+  <meta name="description" content="Curated Home Organization, IKEA Hacks, and Room Styling Guides.">
+  <link rel="canonical" href="https://ecomfornet.github.io/homestylesdeco/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF8F5;
+      color: #1C1917;
+    }
+    .font-serif-editorial {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .filter-pill.active {
+      background-color: #E60023 !important;
+      color: #FFFFFF !important;
+      border-color: #E60023 !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <!-- Header Banner -->
+  <header class="bg-white border-b border-stone-200 py-12 px-4 shadow-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-white font-bold text-xs" style="background-color: #E60023">S</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-stone-400">Editorial Organization Hub</span>
+        </div>
+        <h1 class="font-serif-editorial text-4xl sm:text-5xl font-bold text-stone-900 tracking-tight">Ecomfornet Editorial Hub</h1>
+        <p class="text-sm sm:text-base text-stone-600 mt-2 max-w-2xl leading-relaxed">Curated Home Organization, IKEA Hacks, and Room Styling Guides.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://asqstyle.com/" target="_blank" rel="noopener" class="text-xs font-bold text-white px-5 py-3 rounded-2xl shadow-sm hover:opacity-90 transition" style="background-color: #E60023">
+          Visit asqstyle.com ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hub Directory & Search Bar -->
+  <div class="bg-stone-50 border-b border-stone-200/80 py-8 px-4">
+    <div class="max-w-6xl mx-auto space-y-6">
+      <!-- Search & Filter Controls -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <div class="relative flex-grow max-w-md">
+          <input type="text" id="hub-search" placeholder="Search guides, IKEA hacks, storage ideas..." oninput="handleSearch()" class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-xs">
+          <span class="absolute left-3.5 top-3 text-stone-400 text-sm">🔍</span>
+        </div>
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+          <button class="filter-pill active px-4 py-2 rounded-xl text-xs font-bold transition bg-stone-900 text-white" data-cat="all" onclick="filterByCat('all', this)">All Guides</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="bedroom-inspo" onclick="filterByCat('bedroom-inspo', this)">Bedroom Inspo</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="fire-pits" onclick="filterByCat('fire-pits', this)">Fire Pits</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="bedroom-ideas" onclick="filterByCat('bedroom-ideas', this)">Bedroom Ideas</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="patio-design" onclick="filterByCat('patio-design', this)">Patio Design</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="backyard-ideas" onclick="filterByCat('backyard-ideas', this)">Backyard Ideas</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="gazebos-pergola" onclick="filterByCat('gazebos-pergola', this)">Gazebos Pergola</button><button class="filter-pill px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-stone-700 border border-stone-200 hover:bg-stone-50" data-cat="landscaping-ides" onclick="filterByCat('landscaping-ides', this)">Landscaping Ideas</button>
+        </div>
+      </div>
+
+      <!-- Intermediate Category Hubs List -->
+      
+    </div>
+  </div>
+
+  <!-- Main Posts Catalog Grid -->
+  <main class="max-w-6xl w-full mx-auto px-4 py-12 flex-grow">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="font-serif-editorial text-2xl font-bold text-stone-900">All Published Guides</h2>
+      <span id="posts-count-badge" class="text-xs font-bold text-stone-500 bg-stone-100 px-3 py-1 rounded-full">26 Guides</span>
+    </div>
+    <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="25 kids bedroom ideas: creative themes to inspire joy" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/25-kids-bedroom-ideas-creative-themes-to-inspire-joy/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/25-kids-bedroom-ideas-creative-themes-to-inspire-joy.jpg" alt="25 Kids Bedroom Ideas: Creative Themes to Inspire Joy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/25-kids-bedroom-ideas-creative-themes-to-inspire-joy/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">25 Kids Bedroom Ideas: Creative Themes to Inspire Joy</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Looking for kids bedroom ideas? Create a fun and functional space with colorful decor and versatile furniture options. Incorporate themed bedding and playful wall art for a whimsical touch. Consider storage solutions to keep the room organized and clutter-free. Personalize the space with your child’s favorite toys and books for a cozy and inviting atmosphere….</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="20 modern bedroom ideas: transform your space with style" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/20-modern-bedroom-ideas-transform-your-space-with-style/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/20-modern-bedroom-ideas-transform-your-space-with-style.jpg" alt="20 Modern Bedroom Ideas: Transform Your Space with Style" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/20-modern-bedroom-ideas-transform-your-space-with-style/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">20 Modern Bedroom Ideas: Transform Your Space with Style</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Transform your bedroom with modern ideas such as sleek furniture, minimalist design, and cozy lighting. These elements create a contemporary and inviting space for relaxation and rejuvenation. A modern bedroom encompasses clean lines, neutral colors, and functional decor to achieve a peaceful ambiance. By incorporating these key aspects, you can achieve a stylish and serene…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="12 best in-ground fire pit ideas to warm you up on chilly nights" data-category="fire-pits">
+          <a href="/homestylesdeco/12-best-in-ground-fire-pit-ideas-to-warm-you-up-on-chilly-nights/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/12-best-in-ground-fire-pit-ideas-to-warm-you-up-on-chilly-nights.webp" alt="12 Best In-Ground Fire Pit Ideas to Warm You Up On Chilly Nights" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Fire Pits
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/12-best-in-ground-fire-pit-ideas-to-warm-you-up-on-chilly-nights/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">12 Best In-Ground Fire Pit Ideas to Warm You Up On Chilly Nights</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">The joy of sitting around a fire with friends and family is an experience people won’t soon forget. There’s just something about the warm crackling and dancing orange flames of a fire that brings our minds at ease and our hearts aglow. In this article, we’ll be going over 12 of our favorite in-ground fire…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="18 guest bedroom ideas transform your space with style" data-category="bedroom-ideas">
+          <a href="/homestylesdeco/18-guest-bedroom-ideas-transform-your-space-with-style/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/18-guest-bedroom-ideas-transform-your-space-with-style.svg" alt="18 Guest Bedroom Ideas Transform Your Space With Style" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/18-guest-bedroom-ideas-transform-your-space-with-style/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">18 Guest Bedroom Ideas Transform Your Space With Style</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Curated editorial guide and styling ideas for 18 Guest Bedroom Ideas Transform Your Space With Style.</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="22 small bedroom ideas for couples maximize your sanctuary" data-category="bedroom-ideas">
+          <a href="/homestylesdeco/22-small-bedroom-ideas-for-couples-maximize-your-sanctuary/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/22-small-bedroom-ideas-for-couples-maximize-your-sanctuary.svg" alt="22 Small Bedroom Ideas For Couples Maximize Your Sanctuary" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/22-small-bedroom-ideas-for-couples-maximize-your-sanctuary/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">22 Small Bedroom Ideas For Couples Maximize Your Sanctuary</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Curated editorial guide and styling ideas for 22 Small Bedroom Ideas For Couples Maximize Your Sanctuary.</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="15 home bedroom refresh ideas: transform your oasis!" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/15-home-bedroom-refresh-ideas-transform-your-oasis/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/15-home-bedroom-refresh-ideas-transform-your-oasis.jpg" alt="15 Home Bedroom Refresh Ideas: Transform Your Oasis!" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/15-home-bedroom-refresh-ideas-transform-your-oasis/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">15 Home Bedroom Refresh Ideas: Transform Your Oasis!</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Elevate your bedroom with simple updates like new bedding, artwork, and decorative pillows. Incorporate fresh colors and textures for a cozy and inviting space. Transforming your bedroom doesn’t have to be complicated. By focusing on small changes, you can create a relaxing sanctuary that reflects your personal style. Whether you prefer a minimalist look or…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="29 gorgeous paver patio ideas: images to spark new designs for your back patio" data-category="patio-design">
+          <a href="/homestylesdeco/29-gorgeous-paver-patio-ideas-images-to-spark-new-designs-for-your-back-patio/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/29-gorgeous-paver-patio-ideas-images-to-spark-new-designs-for-your-back-patio.webp" alt="29 Gorgeous Paver Patio Ideas: Images to Spark New Designs for Your Back Patio" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Patio Design
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/29-gorgeous-paver-patio-ideas-images-to-spark-new-designs-for-your-back-patio/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">29 Gorgeous Paver Patio Ideas: Images to Spark New Designs for Your Back Patio</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Spending time outdoors in beautiful weather is one of the true joys of life, especially when it’s right outside your home door. If you’re looking to turn for paver patio ideas or to turn your backyard into a gorgeous haven, you’ve come to the right place. We can’t really think of anything more exciting than…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="30 moody romantic bedroom ideas: enchanting nights await" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/30-moody-romantic-bedroom-ideas-enchanting-nights-await/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/30-moody-romantic-bedroom-ideas-enchanting-nights-await.svg" alt="30 Moody Romantic Bedroom Ideas: Enchanting Nights Await" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/30-moody-romantic-bedroom-ideas-enchanting-nights-await/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">30 Moody Romantic Bedroom Ideas: Enchanting Nights Await</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Create a moody romantic bedroom with dim lighting, luxurious fabrics, and deep, rich color schemes. Incorporate plush textures and scented candles for added ambiance. Transform your bedroom into a romantic sanctuary with these moody ideas. By focusing on dim lighting, luxurious fabrics, and deep color palettes, you can create a cozy and intimate atmosphere. Add…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="35 teenage girl bedroom ideas : chic & dreamy makeovers!" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/35-teenage-girl-bedroom-ideas-chic-dreamy-makeovers/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/35-teenage-girl-bedroom-ideas-chic-dreamy-makeovers.jpg" alt="35 Teenage Girl Bedroom Ideas : Chic &amp; Dreamy Makeovers!" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/35-teenage-girl-bedroom-ideas-chic-dreamy-makeovers/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">35 Teenage Girl Bedroom Ideas : Chic &amp; Dreamy Makeovers!</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Teenage girl bedroom ideas should focus on creating a stylish and functional space that reflects their personality and interests. Designing a bedroom for a teenage girl can be a fun and exciting project. It’s important to create a space that not only looks great but also suits their needs and preferences. Whether your teen is…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="9 magical whimsy goth bedroom ideas to transform your space" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/9-magical-whimsy-goth-bedroom-ideas-to-transform-your-space/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/9-magical-whimsy-goth-bedroom-ideas-to-transform-your-space.jpg" alt="9 Magical Whimsy Goth Bedroom Ideas To Transform Your Space" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/9-magical-whimsy-goth-bedroom-ideas-to-transform-your-space/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">9 Magical Whimsy Goth Bedroom Ideas To Transform Your Space</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Welcome to the world of whimsy goth bedrooms! These spaces blend dark, gothic elements with whimsical touches. They create a magical and mysterious atmosphere. Let’s dive into some amazing ideas to transform your bedroom into a whimsy goth paradise. Creating a whimsy goth bedroom is like crafting a secret garden where shadows dance with…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="16 coastal bedroom decor essentials: transform your space" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/16-coastal-bedroom-decor-essentials-transform-your-space/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/16-coastal-bedroom-decor-essentials-transform-your-space.jpg" alt="16 Coastal Bedroom Decor Essentials: Transform Your Space" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/16-coastal-bedroom-decor-essentials-transform-your-space/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">16 Coastal Bedroom Decor Essentials: Transform Your Space</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Do you love the beach and the ocean? Do you want to bring that feeling into your home? Coastal bedroom decor can help you do that. This guide will show you how to transform your bedroom into a peaceful coastal retreat. Why Choose Coastal Bedroom Decor? Coastal decor makes you feel calm and relaxed….</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="40 ikea teenage girl bedroom ideas: chic & trendy makeovers! (updated)" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/40-ikea-teenage-girl-bedroom-ideas-chic-trendy-makeovers-updated/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/40-ikea-teenage-girl-bedroom-ideas-chic-trendy-makeovers-updated.jpg" alt="40 Ikea Teenage Girl Bedroom Ideas: Chic &amp; Trendy Makeovers! (Updated)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/40-ikea-teenage-girl-bedroom-ideas-chic-trendy-makeovers-updated/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">40 Ikea Teenage Girl Bedroom Ideas: Chic &amp; Trendy Makeovers! (Updated)</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Transforming a teenage girl’s bedroom can be exciting. Ikea offers many creative ideas. Let’s explore some fantastic options. Designing a teenage girl’s bedroom can feel like trying to solve a puzzle with moving pieces. I remember when my cousin turned 13, and suddenly her soft pink princess room didn’t “fit” anymore. She wanted something…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="how to get rid of possums in your backyard and save your garden" data-category="backyard-ideas">
+          <a href="/homestylesdeco/how-to-get-rid-of-possums-in-your-backyard-and-save-your-garden/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/how-to-get-rid-of-possums-in-your-backyard-and-save-your-garden.webp" alt="How to Get Rid of Possums in Your Backyard and Save Your Garden" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Backyard Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/how-to-get-rid-of-possums-in-your-backyard-and-save-your-garden/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">How to Get Rid of Possums in Your Backyard and Save Your Garden</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">These animals are an anomaly in so many ways. They are the only native marsupial species in the country, they have the most teeth of any mammal here, and they have a prehensile tail. Probably the only thing you’re interested in though is how to get rid of possums in your backyard. Fortunately, a lot…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="26 cozy christmas decor ideas for your bedroom" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/26-cozy-christmas-decor-ideas-for-your-bedroom/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/26-cozy-christmas-decor-ideas-for-your-bedroom.jpg" alt="26 Cozy Christmas Decor Ideas for Your Bedroom" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/26-cozy-christmas-decor-ideas-for-your-bedroom/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">26 Cozy Christmas Decor Ideas for Your Bedroom</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Turn your bedroom into a winter wonderland with these festive Christmas decor ideas! From twinkling lights to cozy holiday bedding, discover how to create a warm and magical space that’s perfect for the season. These easy and stylish tips will transform any bedroom into a holiday retreat. 1. Christmas Decor Ideas for Bedroom If you…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="romantic bedroom ideas: transform your space with love" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/romantic-bedroom-ideas-transform-your-space-with-love/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/romantic-bedroom-ideas-transform-your-space-with-love.png" alt="Romantic Bedroom Ideas: Transform Your Space with Love" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/romantic-bedroom-ideas-transform-your-space-with-love/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">Romantic Bedroom Ideas: Transform Your Space with Love</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Creating a romantic bedroom can bring warmth and intimacy to your home. This space can be a sanctuary for you and your partner. Here are some romantic bedroom ideas to inspire you. Here are 11 romantic bedroom ideas 1. Date Night Delight Transform your bedroom into a haven for date nights with soft…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="19 valentines day bedroom decor ideas" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/19-valentines-day-bedroom-decor-ideas/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/19-valentines-day-bedroom-decor-ideas.svg" alt="19 Valentines Day bedroom decor ideas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/19-valentines-day-bedroom-decor-ideas/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">19 Valentines Day bedroom decor ideas</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">The bedroom is a personal and intimate space where couples often share their most meaningful moments. For Valentine’s Day, decorating it thoughtfully shows how much you care, turning a regular night into something special. The effort put into arranging a romantic setting demonstrates love and thoughtfulness, making your partner feel valued and appreciated. Making…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="19 best cabana ideas for your backyard" data-category="backyard-ideas">
+          <a href="/homestylesdeco/19-best-cabana-ideas-for-your-backyard/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/19-best-cabana-ideas-for-your-backyard.webp" alt="19 Best Cabana Ideas for Your Backyard" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Backyard Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/19-best-cabana-ideas-for-your-backyard/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">19 Best Cabana Ideas for Your Backyard</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Few structures add flair to your house more than these backyard cabana ideas. Just imagine that open space you use to store old stuff turned into this simple but magical structure. It instantly calls to mind vacations, entertainment, and relaxation. Building a cabana in your backyard is not necessarily a big, costly project requiring plenty…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="how to create cozy bedroom atmosphere" data-category="bedroom-inspo">
+          <a href="/homestylesdeco/how-to-create-cozy-bedroom-atmosphere/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/how-to-create-cozy-bedroom-atmosphere.jpg" alt="How to Create Cozy Bedroom Atmosphere" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Bedroom Inspo
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/how-to-create-cozy-bedroom-atmosphere/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">How to Create Cozy Bedroom Atmosphere</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">A bedroom is more than just four walls and a bed—it’s where the day starts and ends, and honestly, it shapes our mood in ways we don’t always notice. When I first thought about how to create a cozy bedroom atmosphere, I realized it wasn’t only about buying fancy décor. It was about creating a…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="37 pergola ideas to customize your yard" data-category="gazebos-pergola">
+          <a href="/homestylesdeco/37-pergola-ideas-to-customize-your-yard/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/37-pergola-ideas-to-customize-your-yard.jpg" alt="37 Pergola Ideas to Customize Your Yard" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Gazebos Pergola
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/37-pergola-ideas-to-customize-your-yard/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">37 Pergola Ideas to Customize Your Yard</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Here are 37 pergola ideas to help with designing your custom outdoor space. The Latin word pergula means a projecting eave. The English pronunciation of pergola has been in use since the 1600s. Even though pergolas have been around for a long time, most of the people who had them lived in castles, manors, or elaborate…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="15 concrete patio ideas for stunning and affordable outdoor spaces" data-category="patio-design">
+          <a href="/homestylesdeco/15-concrete-patio-ideas-for-stunning-and-affordable-outdoor-spaces/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/15-concrete-patio-ideas-for-stunning-and-affordable-outdoor-spaces.svg" alt="15 Concrete Patio Ideas for Stunning and Affordable Outdoor Spaces" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Patio Design
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/15-concrete-patio-ideas-for-stunning-and-affordable-outdoor-spaces/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">15 Concrete Patio Ideas for Stunning and Affordable Outdoor Spaces</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">When I first started dreaming about redoing my backyard, I kept stumbling on one phrase over and over: concrete patio ideas. At first, it sounded kind of plain, like a slab of gray cement in the corner of the yard. But once I dug deeper, I realized concrete is like a blank canvas—it can…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="how to get rid of prairie dogs in your backyard and save your lawn" data-category="backyard-ideas">
+          <a href="/homestylesdeco/how-to-get-rid-of-prairie-dogs-in-your-backyard-and-save-your-lawn/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/how-to-get-rid-of-prairie-dogs-in-your-backyard-and-save-your-lawn.webp" alt="How to Get Rid of Prairie Dogs in Your Backyard and Save Your Lawn" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Backyard Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/how-to-get-rid-of-prairie-dogs-in-your-backyard-and-save-your-lawn/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">How to Get Rid of Prairie Dogs in Your Backyard and Save Your Lawn</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Most people think of them as cute, especially when they get on their hind legs and bark, hence, their name. But if you live west of the Mississippi River in cattle country, your thoughts probably lean more toward how to get rid of prairie dogs in your backyard. Description of the Prairie Dog The prairie…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="21 garden sculpture ideas to enhance your backyard" data-category="backyard-ideas">
+          <a href="/homestylesdeco/21-garden-sculpture-ideas-to-enhance-your-backyard/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/21-garden-sculpture-ideas-to-enhance-your-backyard.webp" alt="21 Garden Sculpture Ideas to Enhance your Backyard" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Backyard Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/21-garden-sculpture-ideas-to-enhance-your-backyard/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">21 Garden Sculpture Ideas to Enhance your Backyard</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">From their lively flowers and rich colors to their gravel walkways and hedge mazes, gardens are simply captivating. Though the flora creates a sense of beauty all their own, adding a garden sculpture can truly intensify the appearance of a garden. In this article, we’ve compiled 21 of our favorite garden sculpture ideas to turn…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="70 of the best backyard design ideas" data-category="backyard-ideas">
+          <a href="/homestylesdeco/70-of-the-best-backyard-design-ideas/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/70-of-the-best-backyard-design-ideas.jpg" alt="70 of the Best Backyard Design Ideas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Backyard Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/70-of-the-best-backyard-design-ideas/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">70 of the Best Backyard Design Ideas</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Your home is your sanctuary, and your backyard is one of the best places to kick your shoes off. Everyone wants their yard to be a place of relaxation and fun. Here we’ve compiled 70 of our favorite backyard design ideas to help you transform your space! Photo by Brewster Thornton Group Architects, LLP –…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="landscaping for poor drainage: identifying problems" data-category="landscaping-ides">
+          <a href="/homestylesdeco/landscaping-for-poor-drainage-identifying-problems/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/landscaping-for-poor-drainage-identifying-problems.webp" alt="Landscaping for Poor Drainage: Identifying Problems" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Landscaping Ideas
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/landscaping-for-poor-drainage-identifying-problems/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">Landscaping for Poor Drainage: Identifying Problems</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Misery comes in all shapes and sizes, and discovering you have to deal with landscaping for poor drainage can provide them all. Where the soil is wet from runoff or there’s a high water table, if you want to make use of your land, you need a proper drainage system. Water will rapidly pool if…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="is it a requirement to apply for pergola planning permission uk?" data-category="gazebos-pergola">
+          <a href="/homestylesdeco/is-it-a-requirement-to-apply-for-pergola-planning-permission-uk/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/is-it-a-requirement-to-apply-for-pergola-planning-permission-uk.png" alt="Is it a requirement to apply for pergola planning permission UK?" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Gazebos Pergola
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/is-it-a-requirement-to-apply-for-pergola-planning-permission-uk/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">Is it a requirement to apply for pergola planning permission UK?</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">The last thing you want to do is install a brand new pergola only to find out that you’re in contravention of the local council planning rules. This is commonly known as a “planning breach” and can result in you having to move the position of your pergola, or in the worst-case scenario remove it…</p>
+            </div>
+          </a>
+        </article>
+        <article class="post-card bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between group" data-title="the best plants and climbers for pergolas in the uk" data-category="gazebos-pergola">
+          <a href="/homestylesdeco/the-best-plants-and-climbers-for-pergolas-in-the-uk/" class="block h-full">
+            <div class="aspect-[16/10] bg-stone-100 overflow-hidden relative">
+              <img src="assets/images/the-best-plants-and-climbers-for-pergolas-in-the-uk.jpg" alt="The best plants and climbers for pergolas in the UK" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='/assets/images/placeholder.svg'">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-stone-900 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+                Gazebos Pergola
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono text-stone-400 block mb-1">/homestylesdeco/the-best-plants-and-climbers-for-pergolas-in-the-uk/</span>
+              <h2 class="font-serif-editorial text-xl font-bold text-stone-900 mb-2 leading-snug group-hover:text-rose-600 transition">The best plants and climbers for pergolas in the UK</h2>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">Pergolas have loads of practical applications, which make them a popular choice for garden renovations. However, they also provide a stunning focal point for your garden, and this effect can be amplified by adding plants and climbers that complement the structural design of pergolas while adding a burst of colour and life. Whether you opt…</p>
+            </div>
+          </a>
+        </article>
+    </div>
+    <div id="empty-state" class="hidden text-center py-16">
+      <p class="text-stone-400 text-sm">No guides match your search or filter.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-stone-200 py-10 px-4 text-center text-xs text-stone-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 StylesDays pSEO System. Built for GitHub Organization Pages.</p>
+      <div class="flex items-center gap-4 text-stone-400">
+        <a href="https://ecomfornet.github.io/homestylesdeco/sitemap.xml" class="hover:underline">Sitemap XML</a>
+        <span>•</span>
+        <a href="https://ecomfornet.github.io/homestylesdeco/robots.txt" class="hover:underline">Robots.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search & Filter JS -->
+  <script>
+    let activeCat = 'all';
+    function filterByCat(cat, btn) {
+      activeCat = cat;
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      handleSearch();
+    }
+
+    function handleSearch() {
+      const q = (document.getElementById('hub-search').value || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('.post-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const cat = card.getAttribute('data-category') || '';
+        const matchesCat = (activeCat === 'all' || cat === activeCat);
+        const matchesQuery = (!q || title.includes(q));
+
+        if (matchesCat && matchesQuery) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const empty = document.getElementById('empty-state');
+      if (empty) empty.style.display = (visibleCount === 0) ? 'block' : 'none';
+
+      const badge = document.getElementById('posts-count-badge');
+      if (badge) badge.textContent = visibleCount + ' Guides';
+    }
+  </script>
+</body>
+</html>

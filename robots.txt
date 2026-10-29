@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /assets/images/
+
+User-agent: Pinterestbot
+Allow: /
+Allow: /assets/images/
+
+Sitemap: https://ecomfornet.github.io/homestylesdeco/sitemap.xml
