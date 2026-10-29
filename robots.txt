@@ -6,4 +6,4 @@ User-agent: Pinterestbot
 Allow: /
 Allow: /assets/images/
 
-Sitemap: https://ecomfornet.github.io/homestylesdeco/sitemap.xml
+Sitemap: https://homegarden.github.io/homegarden/sitemap.xml
